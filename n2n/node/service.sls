@@ -24,7 +24,6 @@ n2n-node-service-definition:
       - "[Unit]"
       - Description=n2n Node
       - "[Service]"
-      - PIDFile=/var/run/n2n-node.pid
       - ExecStart=/usr/sbin/edge -d edge0 -a {{ ip }} -b -c {{ n2n.community }} -k {{ n2n.password }} -l {{ n2n.supernode.host }}:{{ n2n.supernode.port }}
       - "[Install]"
       - WantedBy=multi-user.target

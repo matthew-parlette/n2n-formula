@@ -21,7 +21,6 @@ n2n-supernode-service-definition:
       - "[Unit]"
       - Description=n2n Supernode
       - "[Service]"
-      - PIDFile=/var/run/n2n-supernode.pid
       - ExecStart=/usr/bin/supernode -l {{ salt['pillar.get']('n2n:supernode:port', 5644) }}
       - "[Install]"
       - WantedBy=multi-user.target
