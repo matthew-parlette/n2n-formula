@@ -4,6 +4,8 @@
 n2n:
   node:
     pkg: n2n
-    config: '/etc/init/n2n-node.conf'
     service:
+      file:
+        upstart: '/etc/init/n2n-node.conf'
+        systemd: '/etc/systemd/system/n2n-node.service'
       name: n2n-node

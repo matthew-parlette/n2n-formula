@@ -6,4 +6,7 @@ n2n:
     pkg: n2n
     config: '/etc/init/n2n-supernode.conf'
     service:
+      file:
+        upstart: '/etc/init/n2n-supernode.conf'
+        systemd: '/etc/systemd/system/n2n-supernode.service'
       name: n2n-supernode
