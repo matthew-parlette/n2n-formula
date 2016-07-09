@@ -1,0 +1,9 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
+n2n:
+  node:
+    pkg: n2n
+    config: '/etc/init/n2n-node.conf'
+    service:
+      name: n2n-node

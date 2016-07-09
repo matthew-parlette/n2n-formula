@@ -1,3 +1,12 @@
 template:
   lookup:
     master: template-master
+n2n:
+  supernode:
+    host: supernode-host
+    port: 50002
+  community: community-name
+  password: community-password
+  hosts:
+    host1: 1.1.1.1
+    host2: 1.1.1.2
