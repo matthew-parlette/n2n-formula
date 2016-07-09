@@ -3,10 +3,6 @@
 
 {% from "n2n/supernode/map.jinja" import supernode with context %}
 
-{%- set n2n = salt['pillar.get']('n2n') %}
-{%- set ip = salt['pillar.get']('n2n:hosts:' + grains['host']) %}
-
-{%- if ip %}
 n2n-supernode-service-definition:
   file.managed:
     - name: {{ supernode.config }}
@@ -14,10 +10,10 @@ n2n-supernode-service-definition:
     - user: root
     - group: root
     - contents:
+      - setuid supernode
       - start on (started networking)
-      - exec edge -d edge0 -a {{ ip }} -b -c {{ n2n.community }} -k {{ n2n.password }} -l {{ n2n.supernode.host }}:{{ n2n.supernode.port }}
+      - exec supernode -l {{ salt['pillar.get']('n2n:supernode:port', 5644) }}
       - respawn
-{%- endif %}
 
 n2n-supernode-service:
   service.running:
