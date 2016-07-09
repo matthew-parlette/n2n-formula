@@ -1,0 +1,9 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
+n2n:
+  supernode:
+    pkg: n2n
+    config: '/etc/init/n2n-supernode.conf'
+    service:
+      name: n2n-supernode

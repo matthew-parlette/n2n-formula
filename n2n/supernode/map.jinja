@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
+
+{% import_yaml 'n2n/supernode/defaults.yaml' as default_settings %}
+
+{% set os_family_map = salt['grains.filter_by']({
+        'Debian': {},
+        'Suse': {},
+        'Arch': {},
+        'RedHat': {},
+  }
+  , grain="os_family"
+  , merge=salt['pillar.get']('n2n:supernode:lookup'))
+%}
+{% do default_settings.n2n.supernode.update(os_family_map) %}
+
+{% set supernode = salt['pillar.get'](
+        'n2n:supernode',
+        default=default_settings.n2n.supernode,
+        merge=True
+    )
+%}

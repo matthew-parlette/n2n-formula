@@ -14,3 +14,8 @@ Available states
 ------------
 
 Installs the n2n package and starts a n2n node.
+
+``n2n.supernode``
+-----------------
+
+Installs the n2n package and starts a n2n supernode.
