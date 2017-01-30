@@ -11,6 +11,6 @@ n2n-supernode-container:
     - name: {{ supernode.name }}
     - image: {{ supernode.image }}
     - port_bindings:
-      - {{ supernode.port }}:7654
+      - {{ supernode.port }}:7654/udp
     - require:
       - dockerng: n2n-supernode-image
